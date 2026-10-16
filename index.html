@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>God'swill Esu | Front-End Web Developer</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #10b981;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; scroll-behavior: smooth; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 8%; background: rgba(15, 23, 42, 0.9); position: sticky; top: 0; border-bottom: 1px solid #334155; }
+    .logo { font-size: 1.3rem; font-weight: 700; color: var(--accent); }
+    nav a { color: var(--text); text-decoration: none; margin-left: 1.5rem; font-size: 0.95rem; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    .hero { padding: 5rem 8% 4rem; max-width: 900px; }
+    .badge { display: inline-block; background: rgba(16, 185, 129, 0.15); color: var(--accent); padding: 0.35rem 0.85rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+    h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 1rem; }
+    .hero p { color: var(--muted); font-size: 1.15rem; margin-bottom: 2rem; max-width: 650px; }
+    .btn { display: inline-block; background: var(--accent); color: #06281e; font-weight: 700; padding: 0.85rem 1.8rem; border-radius: 8px; text-decoration: none; transition: transform 0.2s; }
+    .btn:hover { transform: translateY(-2px); }
+    section { padding: 4rem 8%; }
+    h2 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+    .skills { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem; }
+    .skill-tag { background: var(--card); border: 1px solid #334155; padding: 0.5rem 1.1rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; }
+    .filter-btns { margin-bottom: 1.5rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .filter-btn { background: var(--card); color: var(--text); border: 1px solid #334155; padding: 0.45rem 1rem; border-radius: 6px; cursor: pointer; font-weight: 600; }
+    .filter-btn.active { background: var(--accent); color: #06281e; border-color: var(--accent); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .card { background: var(--card); border: 1px solid #334155; border-radius: 12px; padding: 1.5rem; transition: transform 0.2s; }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .card-tag { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+    .card h3 { margin: 0.5rem 0; font-size: 1.25rem; }
+    .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.2rem; }
+    .calc-box { background: var(--card); border: 1px solid #334155; border-radius: 12px; padding: 2rem; max-width: 550px; }
+    .calc-row { margin-bottom: 1.2rem; }
+    label { display: block; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.95rem; }
+    select, input[type="range"] { width: 100%; padding: 0.6rem; border-radius: 6px; background: var(--bg); color: var(--text); border: 1px solid #334155; }
+    .price-out { font-size: 1.6rem; font-weight: 700; color: var(--accent); margin-top: 1rem; }
+    footer { text-align: center; padding: 2.5rem 8%; border-top: 1px solid #334155; color: var(--muted); font-size: 0.9rem; }
+    @media (max-width: 640px) { h1 { font-size: 2.1rem; } nav { display: none; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">&lt;God'swill /&gt;</div>
+    <nav>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#estimator">Price Estimator</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span class="badge">Available for Freelance Projects</span>
+    <h1>Turning Figma Designs into Fast, Responsive Websites.</h1>
+    <p>Hi, I'm <strong>God'swill Esu (@fweshgue)</strong> — a Front-End Web Developer specializing in pixel-perfect HTML5, CSS3, and interactive Vanilla JavaScript.</p>
+    <a href="#projects" class="btn">View Featured Work</a>
+  </section>
+
+  <section id="skills">
+    <h2>Core Tech Stack</h2>
+    <div class="skills">
+      <span class="skill-tag">HTML5 (Semantic & SEO)</span>
+      <span class="skill-tag">CSS3 (Flexbox & Grid)</span>
+      <span class="skill-tag">JavaScript (ES6+ DOM)</span>
+      <span class="skill-tag">Figma to Code</span>
+      <span class="skill-tag">Mobile-First Responsive Design</span>
+      <span class="skill-tag">Cross-Browser Bug Fixing</span>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Featured Front-End Solutions</h2>
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="filterProjects('all', this)">All Work</button>
+      <button class="filter-btn" onclick="filterProjects('landing', this)">Landing Pages</button>
+      <button class="filter-btn" onclick="filterProjects('js', this)">Interactive JS</button>
+    </div>
+
+    <div class="grid" id="projectGrid">
+      <div class="card" data-category="landing">
+        <span class="card-tag">Figma to HTML/CSS</span>
+        <h3>SaaS Analytics Landing Page</h3>
+        <p>Pixel-perfect conversion of a multi-section SaaS marketing page featuring responsive CSS Grid layouts and mobile navigation.</p>
+      </div>
+      <div class="card" data-category="js">
+        <span class="card-tag">Vanilla JavaScript</span>
+        <h3>Dynamic E-Commerce Product Filter</h3>
+        <p>Interactive storefront component with instant search, category filtering, and local-storage cart state management.</p>
+      </div>
+      <div class="card" data-category="landing">
+        <span class="card-tag">Responsive Redesign</span>
+        <h3>Modern FinTech Agency Website</h3>
+        <p>Mobile-first 4-page corporate layout with smooth scroll animations, accessible forms, and 99/100 Lighthouse speed score.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="estimator">
+    <h2>Interactive Project Quote Calculator (JS Demo)</h2>
+    <div class="calc-box">
+      <div class="calc-row">
+        <label for="serviceType">Select Service Type:</label>
+        <select id="serviceType" onchange="updateQuote()">
+          <option value="15">HTML/CSS Bug Fix or Responsive Tweak ($15)</option>
+          <option value="45" selected>Full Figma to Responsive Landing Page ($45)</option>
+          <option value="100">Multi-Page Website + Custom JavaScript ($100)</option>
+        </select>
+      </div>
+      <div class="calc-row">
+        <label for="sections">Extra Sections (<span id="secVal">0</span>):</label>
+        <input type="range" id="sections" min="0" max="5" value="0" oninput="updateQuote()" />
+      </div>
+      <div class="price-out">Estimated Quote: $<span id="totalPrice">45</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 God'swill Esu (@fweshgue) • Built with 100% Clean HTML5, CSS3 &amp; JavaScript</p>
+  </footer>
+
+  <script>
+    function filterProjects(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.card').forEach(card => {
+        card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
+      });
+    }
+
+    function updateQuote() {
+      const base = parseInt(document.getElementById('serviceType').value, 10);
+      const extra = parseInt(document.getElementById('sections').value, 10);
+      document.getElementById('secVal').textContent = extra;
+      document.getElementById('totalPrice').textContent = base + (extra * 10);
+    }
+  </script>
+</body>
+</html>
